@@ -97,14 +97,48 @@ p{max-width:var(--measure)}
 .btn-ghost{color:var(--sea-deep)}
 .btn-ghost:hover{background:var(--concrete)}
 
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:clamp(2rem,6vw,4.5rem);align-items:start}
+@media (max-width:860px){ .hero .wrap{grid-template-columns:1fr} }
+
 /* animated reveal — one orchestrated page-load moment only */
-.hero>.wrap>*{opacity:0;transform:translateY(8px);animation:rise .7s cubic-bezier(.2,.6,.2,1) forwards}
-.hero>.wrap>*:nth-child(2){animation-delay:.08s}
-.hero>.wrap>*:nth-child(3){animation-delay:.16s}
-.hero>.wrap>*:nth-child(4){animation-delay:.24s}
-.hero>.wrap>*:nth-child(5){animation-delay:.32s}
+.hero-main>*,.portrait{opacity:0;transform:translateY(8px);animation:rise .7s cubic-bezier(.2,.6,.2,1) forwards}
+.hero-main>*:nth-child(2){animation-delay:.08s}
+.hero-main>*:nth-child(3){animation-delay:.16s}
+.hero-main>*:nth-child(4){animation-delay:.24s}
+.hero-main>*:nth-child(5){animation-delay:.32s}
+.portrait{animation-delay:.12s}
 @keyframes rise{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){ .hero>.wrap>*{opacity:1;transform:none} }
+@media (prefers-reduced-motion: reduce){ .hero-main>*,.portrait{opacity:1;transform:none} }
+
+/* ---------- images ---------- */
+img{max-width:100%;height:auto;display:block}
+
+.portrait{margin-top:.4rem}
+.portrait img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border:1px solid var(--rule);
+  background:var(--concrete);
+}
+.portrait figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem;line-height:1.45}
+@media (max-width:860px){ .portrait{max-width:220px} }
+
+.figures{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;
+  margin-top:2.5rem;
+}
+.figures figure{background:var(--paper);border:1px solid var(--rule);padding:.6rem}
+.figures img{aspect-ratio:4/3;object-fit:cover;background:var(--concrete)}
+.figures figcaption{font-size:.85rem;color:var(--muted);line-height:1.5;padding:.7rem .2rem .2rem}
+.figures figcaption b{display:block;color:var(--ink);font-weight:600;font-size:.9rem;margin-bottom:.15rem}
+
+.strip-head{font-size:1.1rem;margin-top:3rem}
+
+/* optional graphical abstract next to a publication */
+.pub .thumb{margin-top:.8rem;max-width:260px;border:1px solid var(--rule)}
 
 /* ---------- sections ---------- */
 .band{padding:clamp(3rem,7vw,5.5rem) 0;border-bottom:1px solid var(--rule)}
@@ -208,6 +242,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
 <!-- ======================= HERO ======================= -->
 <section id="top" class="hero">
   <div class="wrap">
+   <div class="hero-main">
     <h1>Mayaz Uddin Gazi</h1>
     <div class="role">Cementitious materials, durability, and physics-informed machine learning</div>
     <p class="lede">I study how carbon-negative and alternative binders behave inside cement paste — from hydration chemistry and pore structure to strength and durability — and build machine learning models that respect that physics instead of ignoring it.</p>
@@ -223,6 +258,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
       <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=KHfYI80AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
       <a class="btn btn-ghost" href="#contact">Contact</a>
     </div>
+   </div>
+
+   <!-- TODO: apnar photo ta assets/img/portrait.jpg name diye repo-te rakhun (portrait crop, ~800x1000 px) -->
+   <figure class="portrait">
+     <img src="assets/img/portrait.jpg"
+          alt="Mayaz Uddin Gazi"
+          width="800" height="1000">
+     <figcaption>SMARIN Lab, Department of Civil and Architectural Engineering, University of Miami</figcaption>
+   </figure>
   </div>
 </section>
 
@@ -291,6 +335,40 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
         <p>Linking plant data streams to physics-based models for early prediction and correction of batch-to-batch variability.</p>
       </div>
     </div>
+
+    <h3 class="strip-head">From the lab</h3>
+
+    <!-- TODO: nicher 4-ta image apnar nijer figure diye replace korun.
+         File gulo repo-r assets/img/ folder-e rakhun.
+         Recommended: ~1200 px chowra, JPEG ba WebP, protyek file 300 KB-r niche.
+         alt text ta obossoi likhben — screen reader ar SEO duitar jonnoi lage. -->
+    <div class="figures">
+
+      <figure>
+        <img src="assets/img/sem-biochar.jpg" loading="lazy" width="1200" height="900"
+             alt="Backscattered SEM micrograph of biochar particles embedded in hydrated cement paste">
+        <figcaption><b>Biochar in cement paste</b>Backscattered SEM showing pore structure around a biochar particle.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="assets/img/xrd-patterns.jpg" loading="lazy" width="1200" height="900"
+             alt="Stacked X-ray diffraction patterns for control and biochar-blended mortar at 28 days">
+        <figcaption><b>Phase assemblage</b>XRD patterns for control and blended mixes at 28 days.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="assets/img/mortar-specimens.jpg" loading="lazy" width="1200" height="900"
+             alt="Row of 50 mm mortar cube specimens prepared for compressive strength testing">
+        <figcaption><b>Specimen preparation</b>50 mm mortar cubes cast for compressive strength testing.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="assets/img/model-parity.jpg" loading="lazy" width="1200" height="900"
+             alt="Parity plot comparing predicted and measured compressive strength for the meta-learning model">
+        <figcaption><b>Model performance</b>Predicted against measured strength for the meta-learning framework.</figcaption>
+      </figure>
+
+    </div>
   </div>
 </section>
 
@@ -310,10 +388,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
       <li class="pub">
         <div class="flag"><b><span class="dot live"></span>Published</b>2026 · Journal</div>
         <div>
-          <h3>HEStacked-FSML: data-efficient prediction of nano-modified concrete compressive strength</h3>
+          <h3><a href="https://doi.org/10.1061/JCCEE5.CPENG-7508" target="_blank" rel="noopener">HEStacked-FSML: data-efficient prediction of nano-modified concrete compressive strength</a></h3>
           <div class="authors"><b>M. U. Gazi</b>, M. T. Hasan</div>
           <div class="venue">Journal of Computing in Civil Engineering (ASCE), 40(6), 04026084</div>
-          <!-- TODO: DOI ta ASCE Library theke niye ekhane bosan, format: 10.1061/JCCEE5.CPENG-XXXXX -->
+          <div class="doi">doi: <a href="https://doi.org/10.1061/JCCEE5.CPENG-7508" target="_blank" rel="noopener">10.1061/JCCEE5.CPENG-7508</a></div>
           <p class="note">Hybrid ensemble stacking combined with few-shot meta-learning for strength prediction from small nano-modified concrete datasets.</p>
         </div>
       </li>
@@ -341,6 +419,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
         <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Conference</div>
         <div>
           <h3><a href="https://doi.org/10.1109/ECCE64574.2025.11013991" target="_blank" rel="noopener">Enhancing concrete performance: machine learning models for predicting and classifying tensile strength</a></h3>
+          <div class="authors"><b>M. U. Gazi</b>, N. I. Rupom, G. B. Durjoy, G. Roy, N. Nahid, M. M. Hossain, M. T. Hasan</div>
           <div class="venue">IEEE International Conference on Electrical, Computer and Communication Engineering (ECCE 2025)</div>
           <div class="doi">doi: <a href="https://doi.org/10.1109/ECCE64574.2025.11013991" target="_blank" rel="noopener">10.1109/ECCE64574.2025.11013991</a></div>
         </div>
@@ -349,29 +428,30 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
       <li class="pub">
         <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Conference</div>
         <div>
-          <h3>Data-driven and physics-informed modeling of rice husk ash concrete for strength and sustainability optimization</h3>
+          <h3><a href="https://ieeexplore.ieee.org/document/11490325" target="_blank" rel="noopener">Data-driven and physics-informed modeling of rice husk ash concrete for strength and sustainability optimization</a></h3>
           <div class="authors">M. O. Goni, R. I. Bishal, F. Islam, <b>M. U. Gazi</b></div>
           <div class="venue">28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE</div>
-          <!-- TODO: IEEE Xplore DOI add korun -->
+          <div class="doi"><a href="https://ieeexplore.ieee.org/document/11490325" target="_blank" rel="noopener">IEEE Xplore</a></div>
         </div>
       </li>
 
       <li class="pub">
         <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Conference</div>
         <div>
-          <h3>Deep learning framework for accurate and scalable landslide hazard assessment</h3>
+          <h3><a href="https://ieeexplore.ieee.org/document/11491604" target="_blank" rel="noopener">Deep learning framework for accurate and scalable landslide hazard assessment</a></h3>
           <div class="authors">D. Barua, M. O. Goni, M. A. Alamgir, A. Barua, D. Deb, <b>M. U. Gazi</b></div>
           <div class="venue">28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE</div>
-          <!-- TODO: IEEE Xplore DOI add korun -->
+          <div class="doi"><a href="https://ieeexplore.ieee.org/document/11491604" target="_blank" rel="noopener">IEEE Xplore</a></div>
         </div>
       </li>
 
-      <!-- TODO: ei entry-r full title, author list ar venue Scholar theke complete korun (screenshot-e kata chilo) -->
       <li class="pub">
         <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Conference</div>
         <div>
-          <h3>AI-based urban risk modeling: leveraging physics-informed neural networks for real-time assessment</h3>
-          <div class="venue">Conference proceedings, 2025</div>
+          <h3><a href="https://ieeexplore.ieee.org/document/11491437" target="_blank" rel="noopener">AI-based urban risk modeling: leveraging physics-informed neural networks for real-time structural stress simulation of a structure</a></h3>
+          <div class="authors">M. A. Alamgir, D. Barua, M. K. Khanom, M. S. Ahmed, M. F. Ahmed, M. O. Goni, <b>M. U. Gazi</b></div>
+          <div class="venue">28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE</div>
+          <div class="doi"><a href="https://ieeexplore.ieee.org/document/11491437" target="_blank" rel="noopener">IEEE Xplore</a></div>
         </div>
       </li>
 
@@ -379,6 +459,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
         <div class="flag"><b><span class="dot live"></span>Published</b>2024 · Conference</div>
         <div>
           <h3><a href="https://doi.org/10.1109/ICCIT64611.2024.11022574" target="_blank" rel="noopener">CrackClassification4: classifying four types of cracks in structural surfaces using CNNs</a></h3>
+          <div class="authors"><b>M. U. Gazi</b>, G. B. Durjoy, G. Roy, N. Nahid, M. M. Hossain, G. Saha</div>
           <div class="venue">27th International Conference on Computer and Information Technology (ICCIT 2024), IEEE</div>
           <div class="doi">doi: <a href="https://doi.org/10.1109/ICCIT64611.2024.11022574" target="_blank" rel="noopener">10.1109/ICCIT64611.2024.11022574</a></div>
         </div>
