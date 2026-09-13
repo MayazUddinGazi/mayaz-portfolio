@@ -1,7 +1,7 @@
 - year: 2025
   status: "Published"
   title: "Enhancing Concrete Performance: Machine Learning Models for Predicting and Classifying Tensile Strength"
-  authors: "Mayaz Uddin Gazi, N. I. Rupom, G. B. Durjoy, G. Roy, N. Nahid, M. M. Hossain, and M. T. Hasan"
+  Authors: "Mayaz Uddin Gazi, N. I. Rupom, G. B. Durjoy, G. Roy, N. Nahid, M. M. Hossain, and M. T. Hasan"
   venue: "IEEE International Conference on Electrical, Computer and Communication Engineering (ECCE 2025)"
   doi: "10.1109/ECCE64574.2025.11013991"
   url: "https://doi.org/10.1109/ECCE64574.2025.11013991"
@@ -9,7 +9,7 @@
 - year: 2025
   status: "Published"
   title: "Data-Driven and Physics-Informed Modeling of Rice Husk Ash Concrete for Strength and Sustainability Optimization"
-  authors: "M. O. Goni, R. I. Bishal, F. Islam, and Mayaz Uddin Gazi"
+  Authors: "M. O. Goni, R. I. Bishal, F. Islam, and Mayaz Uddin Gazi"
   venue: "28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE"
   doi: ""
   url: "https://ieeexplore.ieee.org/document/11490325"
@@ -17,7 +17,7 @@
 - year: 2025
   status: "Published"
   title: "Deep Learning Framework for Accurate and Scalable Landslide Hazard Assessment"
-  authors: "D. Barua, M. O. Goni, M. A. Alamgir, A. Barua, D. Deb, and Mayaz Uddin Gazi"
+  Authors: "D. Barua, M. O. Goni, M. A. Alamgir, A. Barua, D. Deb, and Mayaz Uddin Gazi"
   venue: "28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE"
   doi: ""
   url: "https://ieeexplore.ieee.org/document/11491604"
@@ -25,7 +25,7 @@
 - year: 2025
   status: "Published"
   title: "AI-Based Urban Risk Modeling: Leveraging Physics-Informed Neural Networks for Real-Time Structural Stress Simulation of a Structure"
-  authors: "M. A. Alamgir, D. Barua, M. K. Khanom, M. S. Ahmed, M. F. Ahmed, M. O. Goni, and Mayaz Uddin Gazi"
+  Authors: "M. A. Alamgir, D. Barua, M. K. Khanom, M. S. Ahmed, M. F. Ahmed, M. O. Goni, and Mayaz Uddin Gazi"
   venue: "28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE"
   doi: ""
   url: "https://ieeexplore.ieee.org/document/11491437"
@@ -33,7 +33,7 @@
 - year: 2024
   status: "Published"
   title: "CrackClassification4: Classifying Four Types of Cracks in Structural Surfaces Using CNNs"
-  authors: "Mayaz Uddin Gazi, G. B. Durjoy, G. Roy, N. Nahid, M. M. Hossain, and G. Saha"
+  Authors: "Mayaz Uddin Gazi, G. B. Durjoy, G. Roy, N. Nahid, M. M. Hossain, and G. Saha"
   venue: "27th International Conference on Computer and Information Technology (ICCIT 2024), IEEE"
   doi: "10.1109/ICCIT64611.2024.11022574"
   url: "https://doi.org/10.1109/ICCIT64611.2024.11022574"
@@ -46,11 +46,11 @@
   doi: ""
   url: ""
 
-- year: null
+- year: 2024
   status: "Accepted"
   title: "Flood Prediction and Forecasting Using ANNs and a Fuzzy Logic Model in Sylhet, Bangladesh"
   authors: ""
-  venue: "7th International Conference on Advances in Civil Engineering (ICACE), CUET"
+  venue: "7th International Conference on Advances in Civil Engineering (ICACE), CUET - [Springer]"
   doi: ""
   url: ""
 
