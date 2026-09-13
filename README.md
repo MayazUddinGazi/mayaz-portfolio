@@ -9,6 +9,7 @@ Most updates require editing only one YAML file:
 | Content | File |
 | --- | --- |
 | Name, bio, education, email, and profile links | `_data/profile.yml` |
+| Research philosophy and three guiding principles | `_data/philosophy.yml` |
 | Research themes | `_data/research.yml` |
 | Ongoing projects | `_data/projects.yml` |
 | Journal articles | `_data/publications.yml` |

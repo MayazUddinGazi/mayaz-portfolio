@@ -95,11 +95,24 @@ layout: null
     </section>
 
     <section class="section intro-section" id="about">
-      <div class="container two-column">
-        <div><p class="section-kicker">Profile</p><h2>Laboratory evidence, engineering physics, and responsible prediction.</h2></div>
-        <div class="prose large-copy">
-          <p>{{ site.data.profile.focus }}</p>
-          <p>I work across material preparation, mechanical and durability testing, microstructural characterization, data analysis, and scientific communication. This portfolio documents both completed outputs and work in progress, with publication status stated explicitly.</p>
+      <div class="container">
+        <header class="philosophy-header">
+          <p class="section-kicker">{{ site.data.philosophy.eyebrow }}</p>
+          <h2>{{ site.data.philosophy.title }}</h2>
+          <p class="philosophy-intro">{{ site.data.philosophy.intro }}</p>
+        </header>
+
+        <div class="philosophy-grid">
+          {% for principle in site.data.philosophy.principles %}
+          <article class="philosophy-card">
+            <div class="principle-step">
+              <span>0{{ forloop.index }}</span>
+              <strong>{{ principle.label }}</strong>
+            </div>
+            <h3>{{ principle.title }}</h3>
+            <p>{{ principle.text }}</p>
+          </article>
+          {% endfor %}
         </div>
       </div>
     </section>

@@ -1,0 +1,28 @@
+eyebrow: "Research philosophy"
+title: "From material evidence to responsible prediction."
+intro: >-
+  My work follows a simple research logic: observe how a material behaves,
+  explain that behavior with engineering science, and translate the evidence
+  into models that remain useful beyond a single dataset.
+
+principles:
+  - label: "Observe"
+    title: "Experimental evidence"
+    text: >-
+      I combine mechanical, durability, thermal, mineralogical, electrical,
+      and microscopic measurements to determine how alternative constituents
+      reshape cementitious systems.
+
+  - label: "Understand"
+    title: "Physics-aware intelligence"
+    text: >-
+      I connect hydration, pore structure, age, and performance through
+      constrained and uncertainty-aware learning, with particular attention
+      to behavior outside the training domain.
+
+  - label: "Translate"
+    title: "Engineering decisions"
+    text: >-
+      I use prediction and optimization to support realistic decisions about
+      mixture design, durability, embodied carbon, and cost while respecting
+      material and specification limits.
