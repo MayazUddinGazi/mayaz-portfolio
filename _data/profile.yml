@@ -1,6 +1,6 @@
 name: "Mayaz Uddin Gazi"
 short_name: "Mayaz"
-tagline: "Sustainable cementitious materials, durability, and physics-informed machine learning"
+tagline: "Sustainable cementitious materials, Advanced Concrete, and ML/Computer Vision"
 role: "PhD Student and Graduate Research Assistant"
 department: "Department of Civil and Architectural Engineering"
 institution: "University of Miami"
@@ -10,13 +10,30 @@ advisor: "Prof. Xianming Shi"
 photo: "/assets/img/mxg.png"
 email: "mayazuddingazistudy@gmail.com"
 bio: >-
-  I investigate sustainable cementitious systems across laboratory and computational scales.
-  My work connects biochar, fly ash, seawater-mixed mortar, hydration chemistry, transport,
-  and durability with machine learning models designed to remain physically meaningful
-  beyond their training data.
+  I am a PhD candidate in Civil and Architectural Engineering at the University
+  of Miami, working in the SMARIN Lab under Dr. Xianming Shi. My work sits
+  Between the materials laboratory and the computer, I study how cementitious
+  systems behave when conventional constituents are replaced by supplementary
+  and alternative materials, and I build computational models that make that
+  behavior predictable. Experimentally, I work across fresh properties,
+  mechanical performance, durability, and microstructure, using TGA, XRD, XRF,
+  SEM-EDS, isothermal calorimetry, electrical resistivity and impedance
+  spectroscopy, shrinkage, and leaching methods under ASTM, AASHTO, and ACI
+  protocols. Computationally, I work in physics-informed and physics-constrained
+  machine learning, Bayesian optimization for mixture design, graph and deep
+  neural networks, and computer vision for microstructural image analysis. I am
+  most interested in problems where neither the chemistry nor the algorithm is
+  Sufficient on its own.
+
 focus: >-
-  My goal is to turn experimental evidence into defensible tools for designing lower-carbon,
-  durable concrete—not simply to optimize a statistical score.
+  My focus is on connecting hydration chemistry and pore-structure evolution to
+  engineering performance, and then encoding that understanding into models that
+  hold up outside the dataset they were trained on. I am drawn to methods that
+  carry physical meaning — constrained learning, uncertainty-aware prediction,
+  and optimization that respects real mix-design limits — because a model that
+  cannot explain itself cannot be specified. My goal is to turn experimental
+  evidence into defensible tools for designing lower-carbon, durable concrete,
+  not simply to optimize a statistical score.
 links:
   - label: "Google Scholar"
     url: "https://scholar.google.com/citations?user=KHfYI80AAAAJ&hl=en"
@@ -26,7 +43,7 @@ links:
     url: "https://github.com/MayazUddinGazi"
   # Add your verified LinkedIn URL below, then remove the leading # marks.
   # - label: "LinkedIn"
-  #   url: "https://www.linkedin.com/in/your-handle"
+  #   url: "https://www.linkedin.com/in/mayaz-uddin-gazi/"
 education:
   - degree: "PhD in Civil and Architectural Engineering"
     institution: "University of Miami"
@@ -37,5 +54,5 @@ education:
     institution: "Sylhet Engineering College, Shahjalal University of Science and Technology"
     location: "Sylhet, Bangladesh"
     period: "2020–2025"
-    detail: "CGPA: 3.42/4.00"
+    detail: "CGPA: 3.40/4.00"
 
