@@ -35,9 +35,9 @@ category: "Research practice"
 
 Write the post below the second `---`. Jekyll automatically adds it to the Blog section.
 
-## Replace the portrait
+## Replace the hero visual
 
-Replace `assets/img/mxg.png` with the new image while keeping the same filename, or update the `photo` path in `_data/profile.yml`.
+Replace `assets/img/ai-cementitious-characterization.webp` while keeping the same filename, or update the `hero_visual` path in `_data/profile.yml`. The current asset is an AI-generated conceptual visualization created for this portfolio; it does not present experimental results.
 
 ## Image credit
 

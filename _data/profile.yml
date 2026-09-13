@@ -7,7 +7,7 @@ institution: "University of Miami"
 location: "Coral Gables, Florida, USA"
 lab: "SMARIN Lab"
 advisor: "Prof. Xianming Shi"
-photo: "/assets/img/mxg.png"
+hero_visual: "/assets/img/ai-cementitious-characterization.webp"
 email: "mayazuddingazistudy@gmail.com"
 bio: >-
   I am a PhD candidate in Civil and Architectural Engineering at the University
@@ -55,4 +55,3 @@ education:
     location: "Sylhet, Bangladesh"
     period: "2020–2025"
     detail: "CGPA: 3.40/4.00"
-

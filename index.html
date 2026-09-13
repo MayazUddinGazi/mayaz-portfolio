@@ -11,7 +11,7 @@ layout: null
   <meta property="og:title" content="{{ site.data.profile.name }} · Research Portfolio">
   <meta property="og:description" content="{{ site.description | escape }}">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="{{ site.data.profile.photo | relative_url }}">
+  <meta property="og:image" content="{{ site.data.profile.hero_visual | relative_url }}">
   <title>{{ site.data.profile.name }} · Research Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@ layout: null
       "name": "{{ site.data.profile.institution }}"
     },
     "url": "{{ site.url }}{{ site.baseurl }}/",
-    "image": "{{ site.url }}{{ site.baseurl }}{{ site.data.profile.photo }}",
+    "image": "{{ site.url }}{{ site.baseurl }}{{ site.data.profile.hero_visual }}",
     "sameAs": [
       "https://scholar.google.com/citations?user=KHfYI80AAAAJ&hl=en",
       "https://orcid.org/0009-0004-3221-3286",
@@ -69,9 +69,9 @@ layout: null
             <div><dt>Advisor</dt><dd>{{ site.data.profile.advisor }}</dd></div>
           </dl>
         </div>
-        <figure class="portrait-card">
-          <img src="{{ site.data.profile.photo | relative_url }}" alt="Portrait of {{ site.data.profile.name }}" width="1086" height="1448">
-          <figcaption>{{ site.data.profile.lab }} · {{ site.data.profile.location }}</figcaption>
+        <figure class="research-visual">
+          <img src="{{ site.data.profile.hero_visual | relative_url }}" alt="Conceptual visualization connecting cement and biochar microstructure with neural networks and computer-vision phase segmentation" width="1536" height="1024">
+          <figcaption>AI-generated conceptual visualization · Materials characterization × physics-informed learning</figcaption>
         </figure>
       </div>
     </section>
