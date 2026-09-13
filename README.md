@@ -39,6 +39,10 @@ Write the post below the second `---`. Jekyll automatically adds it to the Blog 
 
 Replace `assets/img/mxg.png` with the new image while keeping the same filename, or update the `photo` path in `_data/profile.yml`.
 
+## Image credit
+
+The University of Miami campus photograph at `assets/img/umiami-campus.jpg` is “Palm Tree Walkway” by Chad Cooper, sourced from Wikimedia Commons and used under the Creative Commons Attribution 2.0 license. The required credit and license links are displayed directly below the photograph on the website.
+
 ## Add a CV
 
 Place the PDF at `assets/files/Mayaz-Uddin-Gazi-CV.pdf`, then add this item under `links` in `_data/profile.yml`:
