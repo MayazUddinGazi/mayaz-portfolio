@@ -1,0 +1,20 @@
+- title: "Seawater–fly ash–biochar mortar"
+  status: "Ongoing"
+  summary: "Experimental study of strength, electrical response, shrinkage, hydration products, and contaminant immobilization across curing age."
+  tags: ["Biochar", "Fly ash", "Seawater", "Durability"]
+
+- title: "Physics integration in concrete strength learning"
+  status: "Manuscript development"
+  summary: "Comparison of conventional regression, neural networks, and hard-constrained physics-informed models under interpolation and material-domain shift."
+  tags: ["PINN", "NDT", "Maturity", "OOD generalization"]
+
+- title: "Sustainable mortar digital twin"
+  status: "Framework development"
+  summary: "A multi-objective decision framework connecting early-age measurements with strength, cost, and embodied-carbon optimization."
+  tags: ["Digital twin", "Bayesian optimization", "LCA"]
+
+- title: "Machine learning for alkali-activated concrete"
+  status: "Data analysis"
+  summary: "Literature-derived modeling with source-aware validation to test whether strength models generalize to unseen studies."
+  tags: ["AAC", "LOSO validation", "Explainable ML"]
+

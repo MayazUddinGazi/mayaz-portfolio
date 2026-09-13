@@ -1,0 +1,41 @@
+name: "Mayaz Uddin Gazi"
+short_name: "Mayaz"
+tagline: "Sustainable cementitious materials, durability, and physics-informed machine learning"
+role: "PhD Student and Graduate Research Assistant"
+department: "Department of Civil and Architectural Engineering"
+institution: "University of Miami"
+location: "Coral Gables, Florida, USA"
+lab: "SMARIN Lab"
+advisor: "Prof. Xianming Shi"
+photo: "/assets/img/mxg.png"
+email: "mayazuddingazistudy@gmail.com"
+bio: >-
+  I investigate sustainable cementitious systems across laboratory and computational scales.
+  My work connects biochar, fly ash, seawater-mixed mortar, hydration chemistry, transport,
+  and durability with machine learning models designed to remain physically meaningful
+  beyond their training data.
+focus: >-
+  My goal is to turn experimental evidence into defensible tools for designing lower-carbon,
+  durable concrete—not simply to optimize a statistical score.
+links:
+  - label: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=KHfYI80AAAAJ&hl=en"
+  - label: "ORCID"
+    url: "https://orcid.org/0009-0004-3221-3286"
+  - label: "GitHub"
+    url: "https://github.com/MayazUddinGazi"
+  # Add your verified LinkedIn URL below, then remove the leading # marks.
+  # - label: "LinkedIn"
+  #   url: "https://www.linkedin.com/in/your-handle"
+education:
+  - degree: "PhD in Civil and Architectural Engineering"
+    institution: "University of Miami"
+    location: "Coral Gables, Florida"
+    period: "2026–present"
+    detail: "Advisor: Prof. Xianming Shi"
+  - degree: "BSc in Civil Engineering"
+    institution: "Sylhet Engineering College, Shahjalal University of Science and Technology"
+    location: "Sylhet, Bangladesh"
+    period: "2020–2025"
+    detail: "CGPA: 3.42/4.00"
+

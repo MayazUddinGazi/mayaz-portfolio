@@ -1,0 +1,24 @@
+title: "Mayaz Uddin Gazi"
+description: "Civil engineering researcher working on sustainable cementitious materials, concrete durability, and physics-informed machine learning."
+url: "https://mayazuddingazi.github.io"
+baseurl: "/mayaz-portfolio"
+lang: en
+timezone: America/New_York
+future: false
+permalink: /blog/:year/:month/:day/:title/
+
+author:
+  name: "Mayaz Uddin Gazi"
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+

@@ -1,678 +1,183 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: null
+---
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mayaz Uddin Gazi — Cementitious Materials &amp; Machine Learning</title>
-<meta name="description" content="PhD student in Civil and Architectural Engineering at the University of Miami. Biochar and supplementary cementitious materials, concrete durability, and physics-informed machine learning.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --ink:#14181a;
-  --slate:#3c4a50;
-  --muted:#6d7a80;
-  --rule:#d5dad7;
-  --concrete:#eef0ee;
-  --paper:#ffffff;
-  --sea:#0f6f73;
-  --sea-deep:#0a4f52;
-
-  --serif:"Newsreader", Georgia, "Times New Roman", serif;
-  --sans:"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-
-  --gutter:clamp(1.25rem, 5vw, 4rem);
-  --measure:66ch;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  *{animation:none !important;transition:none !important}
-}
-
-body{
-  font-family:var(--sans);
-  font-size:1.0625rem;
-  line-height:1.65;
-  color:var(--slate);
-  background:var(--paper);
-  -webkit-font-smoothing:antialiased;
-}
-
-h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);font-weight:400;line-height:1.18;letter-spacing:-0.01em}
-a{color:inherit}
-p{max-width:var(--measure)}
-
-.wrap{max-width:1080px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
-
-/* ---------- header ---------- */
-.topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--rule);
-}
-.topbar .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;padding-top:.9rem;padding-bottom:.9rem}
-.mark{font-family:var(--serif);font-size:1.1rem;color:var(--ink);text-decoration:none;white-space:nowrap}
-.mark span{color:var(--muted)}
-.nav{display:flex;gap:1.5rem;list-style:none;font-size:.9rem}
-.nav a{text-decoration:none;color:var(--slate);padding-bottom:2px;border-bottom:1px solid transparent}
-.nav a:hover,.nav a:focus-visible{color:var(--sea);border-bottom-color:var(--sea)}
-@media (max-width:760px){ .nav{display:none} }
-
-/* ---------- hero ---------- */
-.hero{padding:clamp(3.5rem,9vw,7rem) 0 clamp(2.5rem,6vw,4.5rem);border-bottom:1px solid var(--rule)}
-.hero h1{
-  font-size:clamp(2.6rem,7vw,4.6rem);
-  font-weight:300;
-  letter-spacing:-0.025em;
-  margin-bottom:1.1rem;
-}
-.hero .role{
-  font-family:var(--serif);
-  font-style:italic;
-  font-size:clamp(1.15rem,2.4vw,1.5rem);
-  color:var(--sea-deep);
-  margin-bottom:1.6rem;
-}
-.hero p.lede{font-size:1.125rem;color:var(--slate);margin-bottom:2rem}
-.affil{list-style:none;font-size:.95rem;color:var(--muted);margin-bottom:2.25rem}
-.affil li{padding:.35rem 0;border-top:1px solid var(--rule);max-width:44rem}
-.affil li:last-child{border-bottom:1px solid var(--rule)}
-.affil strong{color:var(--ink);font-weight:500}
-
-.actions{display:flex;flex-wrap:wrap;gap:.75rem}
-.btn{
-  font-size:.95rem;text-decoration:none;padding:.7rem 1.35rem;border-radius:2px;
-  border:1px solid var(--sea);display:inline-flex;align-items:center;gap:.5rem;
-  transition:background .2s ease,color .2s ease;
-}
-.btn-solid{background:var(--sea);color:#fff}
-.btn-solid:hover{background:var(--sea-deep)}
-.btn-ghost{color:var(--sea-deep)}
-.btn-ghost:hover{background:var(--concrete)}
-
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:clamp(2rem,6vw,4.5rem);align-items:start}
-@media (max-width:860px){ .hero .wrap{grid-template-columns:1fr} }
-
-/* animated reveal — one orchestrated page-load moment only */
-.hero-main>*,.portrait{opacity:0;transform:translateY(8px);animation:rise .7s cubic-bezier(.2,.6,.2,1) forwards}
-.hero-main>*:nth-child(2){animation-delay:.08s}
-.hero-main>*:nth-child(3){animation-delay:.16s}
-.hero-main>*:nth-child(4){animation-delay:.24s}
-.hero-main>*:nth-child(5){animation-delay:.32s}
-.portrait{animation-delay:.12s}
-@keyframes rise{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){ .hero-main>*,.portrait{opacity:1;transform:none} }
-
-/* ---------- images ---------- */
-img{max-width:100%;height:auto;display:block}
-
-.portrait{margin-top:.4rem}
-.portrait img{
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  object-position:50% 15%;
-  border:1px solid var(--rule);
-  background:var(--concrete);
-}
-.portrait figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem;line-height:1.45}
-@media (max-width:860px){ .portrait{max-width:220px} }
-
-.figures{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1.5rem;
-  margin-top:2.5rem;
-}
-.figures figure{background:var(--paper);border:1px solid var(--rule);padding:.6rem}
-.figures img{aspect-ratio:4/3;object-fit:cover;background:var(--concrete)}
-.figures figcaption{font-size:.85rem;color:var(--muted);line-height:1.5;padding:.7rem .2rem .2rem}
-.figures figcaption b{display:block;color:var(--ink);font-weight:600;font-size:.9rem;margin-bottom:.15rem}
-
-.strip-head{font-size:1.1rem;margin-top:3rem}
-
-/* optional graphical abstract next to a publication */
-.pub .thumb{margin-top:.8rem;max-width:260px;border:1px solid var(--rule)}
-
-/* ---------- sections ---------- */
-.band{padding:clamp(3rem,7vw,5.5rem) 0;border-bottom:1px solid var(--rule)}
-.band.tint{background:var(--concrete)}
-.band>.wrap>h2{
-  font-size:clamp(1.6rem,3.2vw,2.15rem);
-  margin-bottom:.6rem;
-}
-.band>.wrap>.sub{color:var(--muted);font-size:1rem;margin-bottom:2.5rem}
-
-.split{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
-@media (max-width:820px){ .split{grid-template-columns:1fr} }
-
-.prose p+p{margin-top:1rem}
-.prose{font-family:var(--serif);font-size:1.15rem;line-height:1.7}
-
-/* education / side blocks */
-.entry{padding:1.1rem 0;border-top:1px solid var(--rule)}
-.entry:last-child{border-bottom:1px solid var(--rule)}
-.entry h3{font-size:1.15rem;margin-bottom:.2rem}
-.entry .meta{font-size:.9rem;color:var(--muted)}
-.entry .meta em{font-style:normal;color:var(--sea-deep)}
-
-/* ---------- research pillars ---------- */
-.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border-top:1px solid var(--rule)}
-.pillar{padding:1.6rem 1.6rem 1.8rem 0;border-bottom:1px solid var(--rule)}
-.pillar h3{font-size:1.1rem;margin-bottom:.5rem}
-.pillar p{font-size:.95rem;color:var(--muted);max-width:34ch}
-.pillar .tick{display:block;width:26px;height:2px;background:var(--sea);margin-bottom:1rem}
-
-/* ---------- publications ---------- */
-.pubs{list-style:none}
-.pub{padding:1.5rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:9rem minmax(0,1fr);gap:1.5rem}
-.pub:last-child{border-bottom:1px solid var(--rule)}
-@media (max-width:640px){ .pub{grid-template-columns:1fr;gap:.5rem} }
-.pub .flag{font-size:.8rem;line-height:1.5;color:var(--muted)}
-.pub .flag b{display:block;font-weight:600;color:var(--ink)}
-.pub h3{font-size:1.18rem;font-weight:500;margin-bottom:.35rem}
-.pub h3 a{text-decoration:none;border-bottom:1px solid var(--rule)}
-.pub h3 a:hover,.pub h3 a:focus-visible{color:var(--sea);border-bottom-color:var(--sea)}
-.pub .authors{font-size:.92rem;color:var(--muted);margin-bottom:.15rem}
-.pub .authors b{font-weight:600;color:var(--ink)}
-.pub .venue{font-family:var(--serif);font-style:italic;color:var(--slate);font-size:1rem}
-.pub .doi{font-size:.85rem;color:var(--muted);word-break:break-all}
-.pub .doi a{color:var(--sea-deep);text-decoration:none;border-bottom:1px solid var(--rule)}
-.pub .doi a:hover{border-bottom-color:var(--sea)}
-.pub .note{font-size:.92rem;color:var(--muted);margin-top:.4rem}
-
-.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:.45rem;vertical-align:middle}
-.dot.live{background:var(--sea)}
-.dot.press{background:#b07d2b}
-.dot.review{background:#8a93a0}
-
-/* ---------- experience ---------- */
-.record{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:1.5rem;padding:1.4rem 0;border-top:1px solid var(--rule)}
-.record:last-child{border-bottom:1px solid var(--rule)}
-@media (max-width:640px){ .record{grid-template-columns:1fr;gap:.35rem} }
-.record .when{font-size:.88rem;color:var(--muted);padding-top:.25rem}
-.record h3{font-size:1.12rem;margin-bottom:.15rem}
-.record .where{font-size:.95rem;color:var(--sea-deep);margin-bottom:.4rem}
-.record p{font-size:.97rem;color:var(--muted)}
-
-/* ---------- skills ---------- */
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.25rem}
-.col h3{font-size:1.05rem;margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule)}
-.col ul{list-style:none;font-size:.95rem;color:var(--muted)}
-.col li{padding:.25rem 0}
-
-/* ---------- contact ---------- */
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem}
-.contact-grid a,.contact-grid span{display:block;text-decoration:none}
-.contact-grid h3{font-size:.95rem;font-family:var(--sans);font-weight:600;margin-bottom:.3rem}
-.contact-grid .val{font-size:.95rem;color:var(--sea-deep);word-break:break-word}
-.contact-grid a:hover .val{text-decoration:underline}
-
-footer{padding:2.5rem 0;font-size:.85rem;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
-
-:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description | escape }}">
+  <meta name="theme-color" content="#0b423c">
+  <meta property="og:title" content="{{ site.data.profile.name }} · Research Portfolio">
+  <meta property="og:description" content="{{ site.description | escape }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.data.profile.photo | relative_url }}">
+  <title>{{ site.data.profile.name }} · Research Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script defer src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.data.profile.name }}",
+    "jobTitle": "{{ site.data.profile.role }}",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "{{ site.data.profile.institution }}"
+    },
+    "url": "{{ site.url }}{{ site.baseurl }}/",
+    "image": "{{ site.url }}{{ site.baseurl }}{{ site.data.profile.photo }}",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=KHfYI80AAAAJ&hl=en",
+      "https://orcid.org/0009-0004-3221-3286",
+      "https://github.com/MayazUddinGazi"
+    ]
+  }
+  </script>
 </head>
-
 <body>
-
-<header class="topbar">
-  <div class="wrap">
-    <a class="mark" href="#top">Mayaz Uddin Gazi <span>· SMARIN Lab</span></a>
-    <nav>
-      <ul class="nav">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#methods">Methods</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- ======================= HERO ======================= -->
-<section id="top" class="hero">
-  <div class="wrap">
-   <div class="hero-main">
-    <h1>Mayaz Uddin Gazi</h1>
-    <div class="role">Cementitious materials, durability, and physics-informed machine learning</div>
-    <p class="lede">I study how carbon-negative and alternative binders behave inside cement paste — from hydration chemistry and pore structure to strength and durability — and build machine learning models that respect that physics instead of ignoring it.</p>
-
-    <ul class="affil">
-      <li><strong>PhD student</strong>, Civil and Architectural Engineering, University of Miami</li>
-      <li><strong>Graduate Research Assistant</strong>, SMARIN Lab, advised by Dr. Xianming Shi</li>
-      <li><strong>Graduate Teaching Assistant</strong>, CAE 210-G, University of Miami</li>
-    </ul>
-
-    <div class="actions">
-      <a class="btn btn-solid" href="#publications">Publications</a>
-      <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=KHfYI80AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
-      <a class="btn btn-ghost" href="#contact">Contact</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Return to top"><span>{{ site.data.profile.short_name }}</span><small>Research portfolio</small></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" aria-label="Primary navigation">
+        <a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a>
+        <a href="#conferences">Conferences</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+      </nav>
     </div>
-   </div>
+  </header>
 
-   <figure class="portrait">
-     <img src="assets/img/mxg.png"
-          alt="Mayaz Uddin Gazi"
-          width="1086" height="1448">
-     <figcaption>SMARIN Lab, Department of Civil and Architectural Engineering, University of Miami</figcaption>
-   </figure>
-  </div>
-</section>
-
-<!-- ======================= ABOUT ======================= -->
-<section id="about" class="band">
-  <div class="wrap">
-    <h2>About</h2>
-    <p class="sub">Cement chemistry first, computation second.</p>
-
-    <div class="split">
-      <div class="prose">
-        <p>My doctoral work sits between the mixing bowl and the model. On the experimental side I cast and characterise mortars containing biochar, fly ash, and other supplementary cementitious materials, including systems mixed with seawater and sea-sand, and follow what actually changes: hydration kinetics, phase assemblage, pore refinement, transport, and strength development over time.</p>
-        <p>On the computational side I build predictive and optimisation frameworks — physics-informed learning, Bayesian mix optimisation, and image-based microstructure analysis — that are trained and constrained by that same laboratory evidence. The goal is not a higher R², it is a model whose behaviour a materials engineer can defend.</p>
-        <p>Before Miami I worked mainly on data-driven prediction of concrete properties and on environmental modelling in Bangladesh, which is where the machine learning half of this profile comes from.</p>
-      </div>
-
-      <div>
-        <div class="entry">
-          <h3>PhD, Civil and Architectural Engineering</h3>
-          <div class="meta">University of Miami, Coral Gables, FL<br>2025 – present · <em>Advisor: Dr. Xianming Shi</em></div>
+  <main id="main">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">{{ site.data.profile.role }} · {{ site.data.profile.lab }}</p>
+          <h1>{{ site.data.profile.name }}</h1>
+          <p class="hero-tagline">{{ site.data.profile.tagline }}</p>
+          <p class="lede">{{ site.data.profile.bio }}</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#publications">View publications</a>
+            {% for link in site.data.profile.links limit: 3 %}<a class="text-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }} ↗</a>{% endfor %}
+          </div>
+          <dl class="affiliation">
+            <div><dt>Institution</dt><dd>{{ site.data.profile.institution }}</dd></div>
+            <div><dt>Department</dt><dd>{{ site.data.profile.department }}</dd></div>
+            <div><dt>Advisor</dt><dd>{{ site.data.profile.advisor }}</dd></div>
+          </dl>
         </div>
-        <div class="entry">
-          <h3>B.Sc. in Civil Engineering</h3>
-          <div class="meta">Sylhet Engineering College, affiliated with Shahjalal University of Science and Technology<br>Feb 2020 – Jun 2025 · CGPA 3.42 / 4.00</div>
+        <figure class="portrait-card">
+          <img src="{{ site.data.profile.photo | relative_url }}" alt="Portrait of {{ site.data.profile.name }}" width="1086" height="1448">
+          <figcaption>{{ site.data.profile.lab }} · {{ site.data.profile.location }}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="about">
+      <div class="container two-column">
+        <div><p class="section-kicker">Profile</p><h2>Laboratory evidence, engineering physics, and responsible prediction.</h2></div>
+        <div class="prose large-copy">
+          <p>{{ site.data.profile.focus }}</p>
+          <p>I work across material preparation, mechanical and durability testing, microstructural characterization, data analysis, and scientific communication. This portfolio documents both completed outputs and work in progress, with publication status stated explicitly.</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ======================= RESEARCH ======================= -->
-<section id="research" class="band tint">
-  <div class="wrap">
-    <h2>Current research</h2>
-    <p class="sub">Five threads running in parallel at SMARIN Lab.</p>
-
-    <div class="pillars">
-      <div class="pillar">
-        <span class="tick"></span>
-        <h3>Biochar as a supplementary cementitious material</h3>
-        <p>Internal curing, pore refinement, and carbon storage in biochar-blended mortar, tracked through TGA, isothermal calorimetry, and strength testing.</p>
-      </div>
-      <div class="pillar">
-        <span class="tick"></span>
-        <h3>Seawater and sea-sand binder systems</h3>
-        <p>How chloride-rich mixing water and fly ash together reshape hydration products, resistivity, and long-term durability.</p>
-      </div>
-      <div class="pillar">
-        <span class="tick"></span>
-        <h3>Physics-informed machine learning</h3>
-        <p>Embedding hydration and maturity relationships into learning frameworks so predictions stay physically admissible outside the training envelope.</p>
-      </div>
-      <div class="pillar">
-        <span class="tick"></span>
-        <h3>Bayesian mix design optimisation</h3>
-        <p>Multi-objective optimisation of sustainable mixes, balancing strength, cost, and embodied carbon under experimental budget constraints.</p>
-      </div>
-      <div class="pillar">
-        <span class="tick"></span>
-        <h3>Microstructure image analysis</h3>
-        <p>Deep segmentation of SEM images to quantify phases, porosity, and interfacial transition zones without manual thresholding.</p>
-      </div>
-      <div class="pillar">
-        <span class="tick"></span>
-        <h3>Digital twins for concrete quality control</h3>
-        <p>Linking plant data streams to physics-based models for early prediction and correction of batch-to-batch variability.</p>
-      </div>
-    </div>
-
-    <h3 class="strip-head">From the lab</h3>
-
-    <!-- TODO: nicher 4-ta image apnar nijer figure diye replace korun.
-         File gulo repo-r assets/img/ folder-e rakhun.
-         Recommended: ~1200 px chowra, JPEG ba WebP, protyek file 300 KB-r niche.
-         alt text ta obossoi likhben — screen reader ar SEO duitar jonnoi lage. -->
-    <div class="figures">
-
-      <figure>
-        <img src="assets/img/sem-biochar.jpg" loading="lazy" width="1200" height="900"
-             alt="Backscattered SEM micrograph of biochar particles embedded in hydrated cement paste">
-        <figcaption><b>Biochar in cement paste</b>Backscattered SEM showing pore structure around a biochar particle.</figcaption>
-      </figure>
-
-      <figure>
-        <img src="assets/img/xrd-patterns.jpg" loading="lazy" width="1200" height="900"
-             alt="Stacked X-ray diffraction patterns for control and biochar-blended mortar at 28 days">
-        <figcaption><b>Phase assemblage</b>XRD patterns for control and blended mixes at 28 days.</figcaption>
-      </figure>
-
-      <figure>
-        <img src="assets/img/mortar-specimens.jpg" loading="lazy" width="1200" height="900"
-             alt="Row of 50 mm mortar cube specimens prepared for compressive strength testing">
-        <figcaption><b>Specimen preparation</b>50 mm mortar cubes cast for compressive strength testing.</figcaption>
-      </figure>
-
-      <figure>
-        <img src="assets/img/model-parity.jpg" loading="lazy" width="1200" height="900"
-             alt="Parity plot comparing predicted and measured compressive strength for the meta-learning model">
-        <figcaption><b>Model performance</b>Predicted against measured strength for the meta-learning framework.</figcaption>
-      </figure>
-
-    </div>
-  </div>
-</section>
-
-<!-- ======================= PUBLICATIONS ======================= -->
-<section id="publications" class="band">
-  <div class="wrap">
-    <h2>Publications</h2>
-    <p class="sub">
-      <span class="dot live"></span>Published &nbsp;
-      <span class="dot press"></span>Accepted or in revision &nbsp;
-      <span class="dot review"></span>Under review &nbsp;— full list on
-      <a href="https://scholar.google.com/citations?user=KHfYI80AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.
-    </p>
-
-    <ol class="pubs">
-
-      <li class="pub">
-        <div class="flag"><b><span class="dot live"></span>Published</b>2026 · Journal</div>
-        <div>
-          <h3><a href="https://doi.org/10.1061/JCCEE5.CPENG-7508" target="_blank" rel="noopener">HEStacked-FSML: data-efficient prediction of nano-modified concrete compressive strength</a></h3>
-          <div class="authors"><b>M. U. Gazi</b>, M. T. Hasan</div>
-          <div class="venue">Journal of Computing in Civil Engineering (ASCE), 40(6), 04026084</div>
-          <div class="doi">doi: <a href="https://doi.org/10.1061/JCCEE5.CPENG-7508" target="_blank" rel="noopener">10.1061/JCCEE5.CPENG-7508</a></div>
-          <p class="note">Hybrid ensemble stacking combined with few-shot meta-learning for strength prediction from small nano-modified concrete datasets.</p>
+    <section class="section tinted" id="research">
+      <div class="container">
+        <div class="section-heading"><div><p class="section-kicker">Research agenda</p><h2>Current research themes</h2></div><p>Questions that connect sustainable construction materials with physically credible computation.</p></div>
+        <div class="research-grid">
+          {% for item in site.data.research %}
+          <article class="research-card">
+            <span class="card-number">0{{ forloop.index }}</span><h3>{{ item.title }}</h3><p>{{ item.summary }}</p>
+            <ul class="tag-list" aria-label="Methods">{% for method in item.methods %}<li>{{ method }}</li>{% endfor %}</ul>
+          </article>
+          {% endfor %}
         </div>
-      </li>
+      </div>
+    </section>
 
-      <li class="pub">
-        <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Journal</div>
-        <div>
-          <h3><a href="https://doi.org/10.1007/s43503-025-00064-8" target="_blank" rel="noopener">Few-shot meta-learning for concrete strength prediction: a model-agnostic approach with SHAP analysis</a></h3>
-          <div class="authors"><b>M. U. Gazi</b>, M. T. Hasan, P. Debnath</div>
-          <div class="venue">AI in Civil Engineering (Springer Nature), 4(1), 20</div>
-          <div class="doi">doi: <a href="https://doi.org/10.1007/s43503-025-00064-8" target="_blank" rel="noopener">10.1007/s43503-025-00064-8</a></div>
-          <p class="note">Model-agnostic meta-learning with SHAP attribution for 28-day compressive strength under data scarcity.</p>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading"><div><p class="section-kicker">In progress</p><h2>Selected projects</h2></div><p>Active experimental and computational work. Status labels distinguish projects from peer-reviewed publications.</p></div>
+        <div class="project-list">
+          {% for project in site.data.projects %}
+          <article class="project"><div class="project-meta"><span class="status">{{ project.status }}</span></div><div><h3>{{ project.title }}</h3><p>{{ project.summary }}</p><ul class="inline-tags">{% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}</ul></div></article>
+          {% endfor %}
         </div>
-      </li>
+      </div>
+    </section>
 
-      <li class="pub">
-        <div class="flag"><b><span class="dot review"></span>Under review</b>Journal</div>
-        <div>
-          <h3>Predictive modeling of water pollution in the Surma River using the water pollution index framework</h3>
-          <div class="venue">Springer Nature</div>
+    <section class="section dark" id="publications">
+      <div class="container">
+        <div class="section-heading"><div><p class="section-kicker">Research outputs</p><h2>Journal publications</h2></div><a class="light-link" href="https://scholar.google.com/citations?user=KHfYI80AAAAJ&hl=en" target="_blank" rel="noopener">Complete record on Google Scholar ↗</a></div>
+        <ol class="publication-list">
+          {% for publication in site.data.publications %}
+          <li class="publication">
+            <div class="pub-index">{{ forloop.index | prepend: '0' }}</div>
+            <div class="pub-body">
+              <div class="pub-labels"><span>{{ publication.status }}</span><span>{{ publication.year | default: 'Year pending' }}</span><span>{{ publication.type }}</span></div>
+              <h3>{% if publication.url != '' %}<a href="{{ publication.url }}" target="_blank" rel="noopener">{{ publication.title }}</a>{% else %}{{ publication.title }}{% endif %}</h3>
+              {% if publication.authors != '' %}<p class="authors">{{ publication.authors }}</p>{% endif %}
+              {% if publication.venue != '' %}<p class="venue">{{ publication.venue }}{% if publication.publisher != '' %} · {{ publication.publisher }}{% endif %}</p>{% endif %}
+              {% if publication.doi != '' %}<a class="doi" href="https://doi.org/{{ publication.doi }}" target="_blank" rel="noopener">doi:{{ publication.doi }}</a>{% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="conferences">
+      <div class="container">
+        <div class="section-heading"><div><p class="section-kicker">Scholarly communication</p><h2>Conference papers</h2></div><p>Peer-reviewed proceedings and accepted conference contributions.</p></div>
+        <div class="conference-list">
+          {% for paper in site.data.conferences %}
+          <article class="conference-item"><div class="conference-year">{{ paper.year | default: '—' }}</div><div><p class="status-line">{{ paper.status }}</p><h3>{% if paper.url != '' %}<a href="{{ paper.url }}" target="_blank" rel="noopener">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}</h3>{% if paper.authors != '' %}<p class="authors">{{ paper.authors }}</p>{% endif %}<p class="venue">{{ paper.venue }}</p>{% if paper.doi != '' %}<a class="doi" href="https://doi.org/{{ paper.doi }}" target="_blank" rel="noopener">doi:{{ paper.doi }}</a>{% endif %}</div></article>
+          {% endfor %}
         </div>
-      </li>
+      </div>
+    </section>
 
-      <li class="pub">
-        <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Conference</div>
-        <div>
-          <h3><a href="https://doi.org/10.1109/ECCE64574.2025.11013991" target="_blank" rel="noopener">Enhancing concrete performance: machine learning models for predicting and classifying tensile strength</a></h3>
-          <div class="authors"><b>M. U. Gazi</b>, N. I. Rupom, G. B. Durjoy, G. Roy, N. Nahid, M. M. Hossain, M. T. Hasan</div>
-          <div class="venue">IEEE International Conference on Electrical, Computer and Communication Engineering (ECCE 2025)</div>
-          <div class="doi">doi: <a href="https://doi.org/10.1109/ECCE64574.2025.11013991" target="_blank" rel="noopener">10.1109/ECCE64574.2025.11013991</a></div>
+    <section class="section tinted" id="experience">
+      <div class="container split-section">
+        <div><p class="section-kicker">Background</p><h2>Experience and education</h2></div>
+        <div class="timeline">
+          {% for item in site.data.experience %}<article class="timeline-item"><p class="period">{{ item.period }}</p><h3>{{ item.role }}</h3><p class="organization">{{ item.organization }}</p><p>{{ item.summary }}</p></article>{% endfor %}
+          {% for item in site.data.profile.education %}<article class="timeline-item education-item"><p class="period">{{ item.period }}</p><h3>{{ item.degree }}</h3><p class="organization">{{ item.institution }}</p><p>{{ item.location }} · {{ item.detail }}</p></article>{% endfor %}
         </div>
-      </li>
+      </div>
+    </section>
 
-      <li class="pub">
-        <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Conference</div>
-        <div>
-          <h3><a href="https://ieeexplore.ieee.org/document/11490325" target="_blank" rel="noopener">Data-driven and physics-informed modeling of rice husk ash concrete for strength and sustainability optimization</a></h3>
-          <div class="authors">M. O. Goni, R. I. Bishal, F. Islam, <b>M. U. Gazi</b></div>
-          <div class="venue">28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE</div>
-          <div class="doi"><a href="https://ieeexplore.ieee.org/document/11490325" target="_blank" rel="noopener">IEEE Xplore</a></div>
+    <section class="section" id="methods">
+      <div class="container"><div class="section-heading"><div><p class="section-kicker">Capabilities</p><h2>Methods and tools</h2></div></div><div class="skills-grid">
+        {% for group in site.data.skills %}<article><h3>{{ group.group }}</h3><ul>{% for item in group.items %}<li>{{ item }}</li>{% endfor %}</ul></article>{% endfor %}
+      </div></div>
+    </section>
+
+    <section class="section tinted" id="service">
+      <div class="container split-section"><div><p class="section-kicker">Leadership</p><h2>Service and engagement</h2></div><div class="timeline compact">
+        {% for item in site.data.service %}<article class="timeline-item"><p class="period">{{ item.period }}</p><h3>{{ item.role }}</h3><p class="organization">{{ item.organization }}</p><p>{{ item.summary }}</p></article>{% endfor %}
+      </div></div>
+    </section>
+
+    <section class="section" id="blog">
+      <div class="container">
+        <div class="section-heading"><div><p class="section-kicker">Research notes</p><h2>Blog</h2></div><p>Short notes on methods, evidence, reproducibility, and lessons from work in progress.</p></div>
+        <div class="blog-grid">
+          {% for post in site.posts %}<article class="post-card"><p class="post-meta">{{ post.category | default: 'Research note' }} · {{ post.date | date: '%b %-d, %Y' }}</p><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3><p>{{ post.excerpt | strip_html }}</p><a class="text-link" href="{{ post.url | relative_url }}">Read note →</a></article>{% endfor %}
         </div>
-      </li>
-
-      <li class="pub">
-        <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Conference</div>
-        <div>
-          <h3><a href="https://ieeexplore.ieee.org/document/11491604" target="_blank" rel="noopener">Deep learning framework for accurate and scalable landslide hazard assessment</a></h3>
-          <div class="authors">D. Barua, M. O. Goni, M. A. Alamgir, A. Barua, D. Deb, <b>M. U. Gazi</b></div>
-          <div class="venue">28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE</div>
-          <div class="doi"><a href="https://ieeexplore.ieee.org/document/11491604" target="_blank" rel="noopener">IEEE Xplore</a></div>
-        </div>
-      </li>
-
-      <li class="pub">
-        <div class="flag"><b><span class="dot live"></span>Published</b>2025 · Conference</div>
-        <div>
-          <h3><a href="https://ieeexplore.ieee.org/document/11491437" target="_blank" rel="noopener">AI-based urban risk modeling: leveraging physics-informed neural networks for real-time structural stress simulation of a structure</a></h3>
-          <div class="authors">M. A. Alamgir, D. Barua, M. K. Khanom, M. S. Ahmed, M. F. Ahmed, M. O. Goni, <b>M. U. Gazi</b></div>
-          <div class="venue">28th International Conference on Computer and Information Technology (ICCIT 2025), IEEE</div>
-          <div class="doi"><a href="https://ieeexplore.ieee.org/document/11491437" target="_blank" rel="noopener">IEEE Xplore</a></div>
-        </div>
-      </li>
-
-      <li class="pub">
-        <div class="flag"><b><span class="dot live"></span>Published</b>2024 · Conference</div>
-        <div>
-          <h3><a href="https://doi.org/10.1109/ICCIT64611.2024.11022574" target="_blank" rel="noopener">CrackClassification4: classifying four types of cracks in structural surfaces using CNNs</a></h3>
-          <div class="authors"><b>M. U. Gazi</b>, G. B. Durjoy, G. Roy, N. Nahid, M. M. Hossain, G. Saha</div>
-          <div class="venue">27th International Conference on Computer and Information Technology (ICCIT 2024), IEEE</div>
-          <div class="doi">doi: <a href="https://doi.org/10.1109/ICCIT64611.2024.11022574" target="_blank" rel="noopener">10.1109/ICCIT64611.2024.11022574</a></div>
-        </div>
-      </li>
-
-      <li class="pub">
-        <div class="flag"><b><span class="dot press"></span>Accepted</b>Conference</div>
-        <div>
-          <h3>Meta-learning model for low-data river water quality analysis in northeastern Bangladesh</h3>
-          <div class="venue">16th IEEE International Conference on Computing, Communication and Networking Technologies (ICCCNT 2025)</div>
-          <!-- TODO: DOI add korun -->
-        </div>
-      </li>
-
-      <li class="pub">
-        <div class="flag"><b><span class="dot press"></span>Accepted</b>Conference</div>
-        <div>
-          <h3>Flood prediction and forecasting using ANNs and a fuzzy logic model in Sylhet, Bangladesh</h3>
-          <div class="venue">7th International Conference on Advances in Civil Engineering (ICACE), CUET</div>
-          <!-- TODO: DOI add korun -->
-        </div>
-      </li>
-
-    </ol>
-  </div>
-</section>
-
-<!-- ======================= EXPERIENCE ======================= -->
-<section id="experience" class="band tint">
-  <div class="wrap">
-    <h2>Experience</h2>
-    <p class="sub">Research, teaching, and the roles that came before the PhD.</p>
-
-    <div class="record">
-      <div class="when">2025 – present</div>
-      <div>
-        <h3>Graduate Research Assistant</h3>
-        <div class="where">SMARIN Lab, University of Miami</div>
-        <p>Experimental characterisation of biochar and fly ash blended mortars, and development of physics-informed machine learning frameworks for concrete property prediction, under Dr. Xianming Shi.</p>
       </div>
-    </div>
+    </section>
 
-    <div class="record">
-      <div class="when">2025 – present</div>
-      <div>
-        <h3>Graduate Teaching Assistant</h3>
-        <div class="where">CAE 210-G, University of Miami</div>
-        <p>Supporting undergraduate instruction: laboratory sessions, problem sets, and grading.</p>
-      </div>
-    </div>
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid"><div><p class="section-kicker">Contact</p><h2>Let’s discuss sustainable materials and engineering AI.</h2></div><div><p>Open to research collaboration, scholarly exchange, and work connecting cementitious-material experiments with reliable data-driven methods.</p><a class="button primary" href="mailto:{{ site.data.profile.email }}">Email {{ site.data.profile.short_name }}</a><ul class="social-links">{% for link in site.data.profile.links %}<li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }} ↗</a></li>{% endfor %}</ul></div></div>
+    </section>
+  </main>
 
-    <div class="record">
-      <div class="when">Jun 2025 – 2025</div>
-      <div>
-        <h3>AI Engineer</h3>
-        <div class="where">DebuggerLab</div>
-        <p>Developed, trained, and evaluated machine learning models for engineering applications.</p>
-      </div>
-    </div>
-
-    <div class="record">
-      <div class="when">Jan – Jun 2025</div>
-      <div>
-        <h3>Research Assistant</h3>
-        <div class="where">Md. Titumir Hasan, Sylhet Engineering College</div>
-        <p>Experimental design, data preprocessing, and model development for concrete strength research.</p>
-      </div>
-    </div>
-
-    <div class="record">
-      <div class="when">Aug 2024 – 2025</div>
-      <div>
-        <h3>President, CE Center of Research</h3>
-        <div class="where">Civil Engineering Department Research Club</div>
-        <p>Led student research initiatives, seminars, and workshops.</p>
-      </div>
-    </div>
-
-    <div class="record">
-      <div class="when">Aug 2024 – 2025</div>
-      <div>
-        <h3>Vice President</h3>
-        <div class="where">SEC Civil Society</div>
-        <p>Coordinated academic and professional development programmes for civil engineering students.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= METHODS ======================= -->
-<section id="methods" class="band">
-  <div class="wrap">
-    <h2>Methods and tools</h2>
-    <p class="sub">What I run in the lab, and what I run on the cluster.</p>
-
-    <div class="cols">
-      <div class="col">
-        <h3>Mechanical and fresh properties</h3>
-        <ul>
-          <li>Compressive strength — ASTM C109 / C39</li>
-          <li>Flexural and split tensile strength</li>
-          <li>Flow and workability — ASTM C1437</li>
-          <li>Setting time and air content</li>
-          <li>Drying and autogenous shrinkage</li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h3>Durability and transport</h3>
-        <ul>
-          <li>Bulk and surface electrical resistivity</li>
-          <li>Electrochemical impedance spectroscopy</li>
-          <li>Chloride penetration and sorptivity</li>
-          <li>Leaching and pore solution chemistry</li>
-          <li>Sulfate and freeze–thaw exposure</li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h3>Microstructure and chemistry</h3>
-        <ul>
-          <li>SEM and SEM-EDS</li>
-          <li>XRD phase identification and quantification</li>
-          <li>XRF oxide composition</li>
-          <li>TGA and derivative thermogravimetry</li>
-          <li>Isothermal calorimetry, MIP</li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h3>Standards</h3>
-        <ul>
-          <li>ASTM C150, C595, C618, C1157</li>
-          <li>ACI 211, ACI 318, ACI 232</li>
-          <li>AASHTO T 22, T 277, T 358</li>
-          <li>EPA leaching methods (LEAF)</li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h3>Computation</h3>
-        <ul>
-          <li>Python, PyTorch, scikit-learn</li>
-          <li>Physics-informed and hybrid ML</li>
-          <li>Bayesian optimisation with BoTorch</li>
-          <li>CNN segmentation for SEM imagery</li>
-          <li>SHAP and model interpretability</li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h3>Engineering software</h3>
-        <ul>
-          <li>Abaqus, finite element analysis</li>
-          <li>ETABS, nonlinear time-history analysis</li>
-          <li>ArcGIS and spatial analysis</li>
-          <li>Git and reproducible research workflows</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= CONTACT ======================= -->
-<section id="contact" class="band tint">
-  <div class="wrap">
-    <h2>Get in touch</h2>
-    <p class="sub">Open to collaboration on sustainable binders, durability testing, and machine learning for cementitious materials.</p>
-
-    <div class="contact-grid">
-      <!-- TODO: apnar @miami.edu email diye replace korun -->
-      <a href="mailto:mayazuddingazistudy@gmail.com">
-        <h3>Email</h3>
-        <div class="val">mayazuddingazistudy@gmail.com</div>
-      </a>
-
-      <span>
-        <h3>Department</h3>
-        <div class="val">Civil and Architectural Engineering<br>University of Miami, Coral Gables, FL</div>
-      </span>
-
-      <a href="https://scholar.google.com/citations?user=KHfYI80AAAAJ&amp;hl=en" target="_blank" rel="noopener">
-        <h3>Google Scholar</h3>
-        <div class="val">View publication list</div>
-      </a>
-
-      <!-- TODO: ORCID verify korun -->
-      <a href="https://orcid.org/0009-0004-3221-3286" target="_blank" rel="noopener">
-        <h3>ORCID</h3>
-        <div class="val">0009-0004-3221-3286</div>
-      </a>
-
-      <!-- TODO: apnar asol LinkedIn URL bosan -->
-      <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">
-        <h3>LinkedIn</h3>
-        <div class="val">Professional profile</div>
-      </a>
-
-      <!-- TODO: apnar GitHub username bosan -->
-      <a href="https://github.com/" target="_blank" rel="noopener">
-        <h3>GitHub</h3>
-        <div class="val">Code and project repositories</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <span>© 2026 Mayaz Uddin Gazi</span>
-    <span>SMARIN Lab · University of Miami</span>
-  </div>
-</footer>
-
+  <footer class="site-footer"><div class="container footer-grid"><span>© {{ site.time | date: '%Y' }} {{ site.data.profile.name }}</span><span>{{ site.data.profile.lab }} · {{ site.data.profile.institution }}</span><a href="#top">Back to top ↑</a></div></footer>
 </body>
 </html>

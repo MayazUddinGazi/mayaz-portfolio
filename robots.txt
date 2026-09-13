@@ -1,0 +1,4 @@
+Sitemap: https://mayazuddingazi.github.io/mayaz-portfolio/sitemap.xml
+
+User-agent: *
+Allow: /

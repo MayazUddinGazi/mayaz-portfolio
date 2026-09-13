@@ -1,0 +1,32 @@
+- group: "Experimental"
+  items:
+    - "Compressive and split-tensile strength"
+    - "Shrinkage and dimensional stability"
+    - "Bulk resistivity and EIS"
+    - "Sorptivity and chloride transport"
+    - "Leaching and contaminant immobilization"
+
+- group: "Materials characterization"
+  items:
+    - "XRD phase analysis"
+    - "TGA and DTG"
+    - "SEM, BSE, and EDS mapping"
+    - "Isothermal calorimetry"
+    - "Pore-structure interpretation"
+
+- group: "Data and modeling"
+  items:
+    - "Python, MATLAB, and Jupyter"
+    - "PyTorch and scikit-learn"
+    - "Physics-informed neural networks"
+    - "Source-aware and out-of-domain validation"
+    - "SHAP and uncertainty analysis"
+
+- group: "Engineering workflows"
+  items:
+    - "COMSOL Multiphysics and finite elements"
+    - "Life-cycle assessment with openLCA"
+    - "Bayesian optimization"
+    - "Git and reproducible research"
+    - "Technical and academic communication"
+

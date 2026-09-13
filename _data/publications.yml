@@ -1,0 +1,33 @@
+- year: 2026
+  type: "Journal article"
+  status: "Published"
+  title: "HEStacked-FSML: Data-Efficient Prediction of Nano-Modified Concrete Compressive Strength"
+  authors: "Mayaz Uddin Gazi and Md. Titumir Hasan"
+  venue: "Journal of Computing in Civil Engineering, 40(6), 04026084"
+  publisher: "ASCE"
+  doi: "10.1061/JCCEE5.CPENG-7508"
+  url: "https://doi.org/10.1061/JCCEE5.CPENG-7508"
+  featured: true
+
+- year: 2025
+  type: "Journal article"
+  status: "Published"
+  title: "Few-Shot Meta-Learning for Concrete Strength Prediction: A Model-Agnostic Approach with SHAP Analysis"
+  authors: "Mayaz Uddin Gazi, Md. Titumir Hasan, and P. Debnath"
+  venue: "AI in Civil Engineering, 4(1), 20"
+  publisher: "Springer Nature"
+  doi: "10.1007/s43503-025-00064-8"
+  url: "https://doi.org/10.1007/s43503-025-00064-8"
+  featured: true
+
+- year: null
+  type: "Journal manuscript"
+  status: "Under review"
+  title: "Predictive Modeling of Water Pollution in the Surma River Using the Water Pollution Index Framework"
+  authors: ""
+  venue: ""
+  publisher: "Springer Nature"
+  doi: ""
+  url: ""
+  featured: false
+

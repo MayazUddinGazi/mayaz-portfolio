@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
+    <title>{{ page.title }} · {{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>
+        <a class="back-link" href="{{ '/' | relative_url }}#blog">← All notes</a>
+      </div>
+    </header>
+    <main class="post-shell">
+      <article class="post container prose">
+        <p class="eyebrow">{{ page.category | default: 'Research note' }} · {{ page.date | date: '%B %-d, %Y' }}</p>
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+      </article>
+    </main>
+    <footer class="site-footer"><div class="container">© {{ site.time | date: '%Y' }} {{ site.data.profile.name }}</div></footer>
+  </body>
+</html>

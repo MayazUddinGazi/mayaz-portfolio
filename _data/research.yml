@@ -1,0 +1,20 @@
+- title: "Biochar-modified cementitious materials"
+  summary: "Internal curing, pore refinement, carbon storage, mechanical performance, and dimensional stability in biochar-blended mortar."
+  methods: ["Compressive strength", "Shrinkage", "TGA/DTG", "XRD", "SEM-EDS"]
+
+- title: "Seawater and sea-sand binder systems"
+  summary: "Hydration, phase assemblage, resistivity, transport, and durability of fly-ash and biochar mortars produced with alternative water and aggregate sources."
+  methods: ["Bulk resistivity", "EIS", "Sorptivity", "Chloride transport", "Leaching"]
+
+- title: "Physics-informed machine learning"
+  summary: "Hybrid learning frameworks that embed maturity, hydration, and engineering constraints to improve physical consistency and extrapolation."
+  methods: ["PINNs", "OOD evaluation", "Uncertainty", "SHAP", "Cross-validation"]
+
+- title: "Digital twins and mix optimization"
+  summary: "Data-assisted concrete quality control and multi-objective mix design balancing strength, cost, and embodied carbon."
+  methods: ["Gaussian processes", "Bayesian optimization", "Pareto analysis", "Life-cycle assessment"]
+
+- title: "Microstructure image analysis"
+  summary: "Reproducible analysis of cementitious microstructures using microscopy, phase mapping, and image segmentation."
+  methods: ["BSE imaging", "EDS mapping", "CNN segmentation", "Quantitative microscopy"]
+
